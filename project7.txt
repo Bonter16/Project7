@@ -1,0 +1,126 @@
+## Assignment: project 7
+## Author: Brian Bonter
+
+
+use 5.14.2;
+use warnings;
+
+my ($lastName, $firstName, $middleName, $insurance, $ailment, $print);
+my ($dob, $pin);
+my %languagePreference;
+use constant MAX_RECURSION => 5;
+use constant TRUE => 1;
+
+sub main {
+	system ("cls");
+	setLastName();
+	setFirstName();
+	setMiddleName();
+	setDob();
+	setInsurance();
+	setAilment();
+	setPin();
+	setPrint();
+}	
+	
+main();
+
+
+sub setFirstName {
+	if (!(defined $firstName)) {
+		$firstName = 1;
+	}
+	while ($firstName !~ /^[a-zA-Z]{2,20}$/x) {
+		print "What is your first name? ";
+		chomp ($firstName = <STDIN>);
+		if ($firstName !~ /^[a-zA-Z]{2,20}$/x) {
+			say "Incorrect input. Please try again";
+			sleep 1;
+			system ("cls");
+		}
+	}
+}
+
+sub setLastName {
+	if (!(defined $lastName)) {
+		$lastName = 1;
+	}
+	while ($lastName !~ /^[a-zA-Z]{2,20}$/x) {
+		print "What is your last name? ";
+		chomp ($lastName = <STDIN>);
+		if ($lastName !~ /^[a-zA-Z]{2,20}$/x) {
+			say "Incorrect input. Please try again";
+			sleep 1;
+			system ("cls");
+		}
+	}
+}
+
+sub setMiddleName {
+	if (!(defined $middleName)) {
+		$middleName = 1;
+	}
+	while ($middleName !~ /^[a-zA-Z]{2,20}$/x) {
+		print "What is your middle name? ";
+		chomp ($middleName = <STDIN>);
+		if ($middleName !~ /^[a-zA-Z]{2,20}$/x) {
+			say "Incorrect input. Please try again";
+			sleep 1;
+			system ("cls");
+		}
+	}
+}
+
+sub setDob {
+	if (!(defined $dob)) {
+		$dob = 1;
+	}
+	while ($dob !~ /^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$) {
+		print " What is you date of birth? use yyyy-mm-dd format. ";
+		chomp ($dob = <STDIN>);
+		if ($dob !~ /^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$) {
+			say " That is not a proper date."
+			sleep 1;
+			system ("cls");
+		}
+	}
+}
+
+sub setInsurance {
+	if (!(defined $insurance)) {
+		$insurance =1;
+	}
+	while ($insurance !~ /^[a-zA-Z]{2,20}$/x) {
+		print "Who is your insurance provider? ";
+		chomp ($insurance = <STDIN>);
+		if ($insurance !~ /^[a-zA-Z]{2,20}$/x) {
+			say "Incorrect input. Please try again";
+			sleep 1;
+			system ("cls");
+		}
+	}
+}
+
+sub setAilment {
+	if (!(defined $ailment)) {
+		$ailment =1;
+	}
+	while ($ailment !~ /^[a-zA-Z]{2,20}$/x) {
+		print "What is your medical issue? ";
+		chomp ($ailment = <STDIN>);
+		if ($ailment !~ /^[a-zA-Z]{2,20}$/x) {
+			say "Incorrect input. Please try again";
+			sleep 1;
+			system ("cls");
+		}
+	}
+}
+
+sub setPin {
+	$pin = int(rand(10))
+}
+
+sub setPrint {
+	$print = print " $firstName $middleName $lastName\n $dob\n $ailment\n $pin"
+}
+
